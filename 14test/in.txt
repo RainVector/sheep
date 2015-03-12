@@ -1,0 +1,6 @@
+editor:yupeng
+monitor:taizi
+leader:yuxiumin
+loser:she
+winer:hi
+funner:hehehehehe
