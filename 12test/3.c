@@ -1,42 +1,44 @@
 #include <stdio.h>
 #include <string.h>
 
-void remove(char str[]);
+#define MaxWordLen 300
+void Remove(char str[]);
 int IsDel(char ch);
 int GetPos(char buf[],int pos,char word[]);
 
 int main()
 {
-	char str[100];	
+	char str[MaxWordLen];	
 	int position = 0;
 	char word[10];
 	memset(word,'\0',10*sizeof(char));
 	freopen("./in.txt","r",stdin);
-	gets(str);	
+	while(gets(str)!=NULL)
+	{
 
-	remove(str); // remove keyword in ""
+	Remove(str); // Remove keyword in ""
 	
-	int i;
-	int len;
-	len = strlen(buf);
 	do{
-		position = GetPos(buf,position,word);
+		position = GetPos(str,position,word);
 		int wlen = strlen(word);
-		if(strcmp("if",word))
+		if(strcmp("if",word)==0)
 		{
-			prinft("if:%d\n",position-wlen+1);
+			printf("if:%d\n",position-wlen+1);
 		}
-		else if(strcmp("while",word))
+		else if(strcmp("while",word)==0)
 		{
 			printf("while:%d\n",position-wlen+1);
 		}
-		else if(strcmp("for",word))
+		else if(strcmp("for",word)==0)
 		{
 			printf("for:%d\n",position-wlen+1);
-	}while(positon>0);
+		}
+	}while(position>0);
+	}
+	return 0;
 	
 }
-void remove(char str[])
+void Remove(char str[])
 {
 	int i,len;
 	len = strlen(str);
@@ -53,7 +55,6 @@ void remove(char str[])
 }
 int IsDel(char ch)
 {
-	int Del = 0;
 	switch (ch)
 	{
 		case ',':
@@ -97,5 +98,5 @@ int GetPos(char buf[],int pos,char word[])
 		}
 	}
 	word[j] = '\0';
-	return (i>len)?-1:i;
+	return (i>=len)?-1:i;
 }
