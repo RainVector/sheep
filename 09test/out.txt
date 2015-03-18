@@ -1,1 +1,1 @@
-#clude<stdio.h>tma(){prtf("Hi");}
+#include<stdio.h>intmain(){printf("Hi");}
