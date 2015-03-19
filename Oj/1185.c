@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <malloc.h>
+//题目不清楚，只要挑出一个最大值即可
+int main()
+{
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        int i,j;
+        if(n<=0)
+            return 0;
+        if(n==1)
+            {
+                    scanf("%d",&i);
+                    printf("%d\n",i);
+                    printf("%d\n",-1);
+            }
+        else
+        {
+            int *a = (int *)malloc(n*sizeof(int));
+            for(i=0;i<n;i++) 
+                scanf("%d",&a[i]);
+            for(i=0;i<n;i++)
+                for(j=0;j<n-1-i;j++)
+                    if(a[j]>a[j+1])
+                    {
+                        int temp;
+                        temp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = temp;
+                    }
+            int max = a[n-1];
+            printf("%d\n",max);
+
+            for(i=0;i<n-1;i++)
+                printf("%d ",a[i]);
+            printf("\n");
+        }
+    }
+    return 0;
+}
