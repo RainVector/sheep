@@ -29,17 +29,6 @@ int main()
 				tem1++;
 		}
 		i++;
-		/*
-		char *token;
-		char del[2] = ":";
-		token = strtok(buff,del);
-		while(token!=NULL)
-		{
-			word[i] = token;
-			token = strtok(buff,del);
-			i++;
-		}
-		*/
 	}
 
 	for(j=0;j<i;j++)
